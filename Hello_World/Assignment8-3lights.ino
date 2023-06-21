@@ -1,3 +1,5 @@
+//Tom's comment
+
 void setup() {
   pinMode(7, INPUT);
   pinMode(0, OUTPUT);
