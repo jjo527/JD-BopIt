@@ -9,9 +9,9 @@ void setup() {
 
   pinMode(2, OUTPUT); // bottom output light on right, not being used currently
 
-  pinMode(9, OUTPUT); // bottom light signaling input 
-  pinMode(10, OUTPUT); // middle light signaling input
-  pinMode(11, OUTPUT); // top light signaling input
+  //pinMode(9, OUTPUT); // bottom light signaling input 
+  //pinMode(10, OUTPUT); // middle light signaling input
+  pinMode(11, OUTPUT); // BUZZER OUTPUT FOR SIGNALING INPUTS (used to be top light signaling input)
   //TCCR2B = TCCR2B & 0b11111000 | 0x01;
   pinMode(12, OUTPUT); //start/stop indicator
   bool isRunning = false;
@@ -42,44 +42,44 @@ void loop()
 
   // constant while loop that gives/checks for inputs
   while (isRunning) {
-    int randNumber = random(1,4);
+    int randNumber = random(1,4); //generates random command number
       
     if(randNumber == 1) {
       digitalWrite(11, HIGH);
       delay(100);
       digitalWrite(11, LOW);
       delay(500);
-      bool hold = false;
+      bool userInput = false;
 
-      for(int i = 0; i < 3000; i++) {
+      for(int i = 0; i < 3000; i++) { //loop checking for input from user
         delay(1);
 
-        if (digitalRead(6) == HIGH && hold == false) {
+        if (digitalRead(6) == HIGH && userInput == false) {
           Serial.print("correct input detected");
           digitalWrite(1, HIGH);
           delay(500);
           digitalWrite(1, LOW);
           delay(500);
-          hold = true;
+          userInput = true;
         }
-        else if (digitalRead(7) == HIGH && hold == false) {
+        else if (digitalRead(7) == HIGH && userInput == false) {
           digitalWrite(0, HIGH);
           delay(500);
           digitalWrite(0, LOW);
           delay(500);
-          hold = true;
+          userInput = true;
         }
-        else if (digitalRead(8) == HIGH && hold == false) {
+        else if (digitalRead(8) == HIGH && userInput == false) {
           digitalWrite(0, HIGH);
           delay(500);
           digitalWrite(0, LOW);
           delay(500);
-          hold = true;
+          userInput = true;
         } 
 
       }
 
-      if (hold == false) {
+      if (userInput == false) {
         digitalWrite(0, HIGH);
         delay(500);
         digitalWrite(0, LOW);
@@ -99,44 +99,44 @@ void loop()
       delay(100);
       digitalWrite(11, LOW);
       delay(500);
-      bool hold = false;
+      bool userInput = false;
 
       for(int i = 0; i < 3000; i++) {
         delay(1);
 
-        if (digitalRead(6) == HIGH && hold == false) {
+        if (digitalRead(6) == HIGH && userInput == false) {
           digitalWrite(0, HIGH);
           delay(500);
           digitalWrite(0, LOW);
           delay(500);
-          hold = true;
+          userInput = true;
         }
-        else if (digitalRead(7) == HIGH && hold == false) {
+        else if (digitalRead(7) == HIGH && userInput == false) {
           Serial.print("correct input detected");
           digitalWrite(1, HIGH);
           delay(500);
           digitalWrite(1, LOW);
           delay(500);
-          hold = true;
+          userInput = true;
         }
-        else if (digitalRead(8) == HIGH && hold == false) {
+        else if (digitalRead(8) == HIGH && userInput == false) {
           digitalWrite(0, HIGH);
           delay(500);
           digitalWrite(0, LOW);
           delay(500);
-          hold = true;
+          userInput = true;
         } 
 
       }
 
-      if (hold == false) {
+      if (userInput == false) {
         digitalWrite(0, HIGH);
         delay(500);
         digitalWrite(0, LOW);
         delay(500);
       }
       
-      digitalWrite(10, LOW);
+      digitalWrite(11, LOW);
       delay(500);
 
     }
@@ -153,44 +153,44 @@ void loop()
       delay(100);
       digitalWrite(11, LOW);
       delay(500);
-      bool hold = false;
+      bool userInput = false;
 
       for(int i = 0; i < 3000; i++) {
         delay(1);
 
-        if (digitalRead(6) == HIGH && hold == false) {
+        if (digitalRead(6) == HIGH && userInput == false) {
           digitalWrite(0, HIGH);
           delay(500);
           digitalWrite(0, LOW);
           delay(500);
-          hold = true;
+          userInput = true;
         }
-        else if (digitalRead(7) == HIGH && hold == false) {
+        else if (digitalRead(7) == HIGH && userInput == false) {
           digitalWrite(0, HIGH);
           delay(500);
           digitalWrite(0, LOW);
           delay(500);
-          hold = true;
+          userInput = true;
         }
-        else if (digitalRead(8) == HIGH && hold == false) {
+        else if (digitalRead(8) == HIGH && userInput == false) {
           Serial.print("correct input detected");
           digitalWrite(1, HIGH);
           delay(500);
           digitalWrite(1, LOW);
           delay(500);
-          hold = true;
+          userInput = true;
         } 
 
       }
 
-      if (hold == false) {
+      if (userInput == false) {
         digitalWrite(0, HIGH);
         delay(500);
         digitalWrite(0, LOW);
         delay(500);
       }
       
-      digitalWrite(9, LOW);
+      digitalWrite(11, LOW);
       delay(500);
 
     }
