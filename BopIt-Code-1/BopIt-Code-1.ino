@@ -21,6 +21,7 @@ void loop()
 {
   bool isRunning = false;  
   digitalWrite(1, LOW);
+  delay(500);
 
   // toggle start light and logic
   if(digitalRead(13) == HIGH) {
@@ -51,18 +52,21 @@ void loop()
           digitalWrite(1, HIGH);
           delay(500);
           digitalWrite(1, LOW);
+          delay(500);
           hold = true;
         }
         else if (digitalRead(7) == HIGH && hold == false) {
           digitalWrite(0, HIGH);
           delay(500);
           digitalWrite(0, LOW);
+          delay(500);
           hold = true;
         }
         else if (digitalRead(8) == HIGH && hold == false) {
           digitalWrite(0, HIGH);
           delay(500);
           digitalWrite(0, LOW);
+          delay(500);
           hold = true;
         } 
 
@@ -72,9 +76,11 @@ void loop()
         digitalWrite(0, HIGH);
         delay(500);
         digitalWrite(0, LOW);
+        delay(500);
       }
       
       digitalWrite(11, LOW);
+      delay(500);
 
     }
     else if(randNumber == 2) {
@@ -88,18 +94,21 @@ void loop()
           digitalWrite(0, HIGH);
           delay(500);
           digitalWrite(0, LOW);
+          delay(500);
           hold = true;
         }
         else if (digitalRead(7) == HIGH && hold == false) {
           digitalWrite(1, HIGH);
           delay(500);
           digitalWrite(1, LOW);
+          delay(500);
           hold = true;
         }
         else if (digitalRead(8) == HIGH && hold == false) {
           digitalWrite(0, HIGH);
           delay(500);
           digitalWrite(0, LOW);
+          delay(500);
           hold = true;
         } 
 
@@ -109,9 +118,11 @@ void loop()
         digitalWrite(0, HIGH);
         delay(500);
         digitalWrite(0, LOW);
+        delay(500);
       }
       
       digitalWrite(10, LOW);
+      delay(500);
 
     }
     else if(randNumber == 3) {
@@ -125,18 +136,21 @@ void loop()
           digitalWrite(0, HIGH);
           delay(500);
           digitalWrite(0, LOW);
+          delay(500);
           hold = true;
         }
         else if (digitalRead(7) == HIGH && hold == false) {
           digitalWrite(0, HIGH);
           delay(500);
           digitalWrite(0, LOW);
+          delay(500);
           hold = true;
         }
         else if (digitalRead(8) == HIGH && hold == false) {
           digitalWrite(1, HIGH);
           delay(500);
           digitalWrite(1, LOW);
+          delay(500);
           hold = true;
         } 
 
@@ -146,9 +160,11 @@ void loop()
         digitalWrite(0, HIGH);
         delay(500);
         digitalWrite(0, LOW);
+        delay(500);
       }
       
       digitalWrite(9, LOW);
+      delay(500);
 
     }
 
