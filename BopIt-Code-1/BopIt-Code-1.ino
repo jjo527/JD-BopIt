@@ -36,18 +36,83 @@ void loop()
     delay(5000);
   }  
 
+  // constant while loop that gives/checks for inputs
   while (isRunning) {
-    int randNumber = random(3,4);
+    int randNumber = random(1,4);
 
     if(randNumber == 1) {
       digitalWrite(11, HIGH);
-      delay(500);
+      bool hold = false;
+
+      for(int i = 0; i < 3000; i++) {
+        delay(1);
+
+        if (digitalRead(6) == HIGH && hold == false) {
+          digitalWrite(1, HIGH);
+          delay(500);
+          digitalWrite(1, LOW);
+          hold = true;
+        }
+        else if (digitalRead(7) == HIGH && hold == false) {
+          digitalWrite(0, HIGH);
+          delay(500);
+          digitalWrite(0, LOW);
+          hold = true;
+        }
+        else if (digitalRead(8) == HIGH && hold == false) {
+          digitalWrite(0, HIGH);
+          delay(500);
+          digitalWrite(0, LOW);
+          hold = true;
+        } 
+
+      }
+
+      if (hold == false) {
+        digitalWrite(0, HIGH);
+        delay(500);
+        digitalWrite(0, LOW);
+      }
+      
       digitalWrite(11, LOW);
+
     }
     else if(randNumber == 2) {
       digitalWrite(10, HIGH);
-      delay(500);
+      bool hold = false;
+
+      for(int i = 0; i < 3000; i++) {
+        delay(1);
+
+        if (digitalRead(6) == HIGH && hold == false) {
+          digitalWrite(0, HIGH);
+          delay(500);
+          digitalWrite(0, LOW);
+          hold = true;
+        }
+        else if (digitalRead(7) == HIGH && hold == false) {
+          digitalWrite(1, HIGH);
+          delay(500);
+          digitalWrite(1, LOW);
+          hold = true;
+        }
+        else if (digitalRead(8) == HIGH && hold == false) {
+          digitalWrite(0, HIGH);
+          delay(500);
+          digitalWrite(0, LOW);
+          hold = true;
+        } 
+
+      }
+
+      if (hold == false) {
+        digitalWrite(0, HIGH);
+        delay(500);
+        digitalWrite(0, LOW);
+      }
+      
       digitalWrite(10, LOW);
+
     }
     else if(randNumber == 3) {
       digitalWrite(9, HIGH);
@@ -74,7 +139,7 @@ void loop()
           digitalWrite(1, LOW);
           hold = true;
         } 
-  
+
       }
 
       if (hold == false) {
@@ -87,37 +152,7 @@ void loop()
 
     }
 
-
-
-    // if (digitalRead(6) == HIGH) {
-    //   // blink bottom light
-    //   digitalWrite(11, HIGH);
-    //   digitalWrite(1, HIGH);
-    //   delay(500);
-    //   digitalWrite(11, LOW);
-    //   digitalWrite(1, LOW);
-    //   delay(2300);
-    // }
-    // else if(digitalRead(7) == HIGH) { 
-    //   // blink bottom light
-    //   digitalWrite(10, HIGH);
-    //   digitalWrite(1, HIGH);
-    //   delay(500);
-    //   digitalWrite(10, LOW);
-    //   digitalWrite(1, LOW);
-    //   delay(2300);
-    // } 
-    // else if (digitalRead(8) == HIGH){
-    //   // blink bottom light
-    //   digitalWrite(9, HIGH);
-    //   digitalWrite(0, HIGH);
-    //   delay(500);
-    //   digitalWrite(9, LOW);
-    //   digitalWrite(0, LOW);
-    //   delay(2300);
-    // } 
-
-    // toggle start light and logic
+    // still check for start button toggle
     if(digitalRead(13) == HIGH) {
       digitalWrite(12, !digitalRead(12));
       
