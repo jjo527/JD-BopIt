@@ -45,17 +45,17 @@ void loop()
     int randNumber = random(1,4);
       
     if(randNumber == 1) {
-      analogWrite(11, HIGH);
+      digitalWrite(11, HIGH);
       delay(100);
-      analogWrite(11, LOW);
+      digitalWrite(11, LOW);
       delay(100);
-      analogWrite(11, HIGH);
+      digitalWrite(11, HIGH);
       delay(100);
-      analogWrite(11, LOW);
+      digitalWrite(11, LOW);
       delay(100);
-      analogWrite(11, HIGH);
+      digitalWrite(11, HIGH);
       delay(100);
-      analogWrite(11, LOW);
+      digitalWrite(11, LOW);
       delay(500);
       bool hold = false;
 
@@ -99,13 +99,13 @@ void loop()
 
     }
     else if(randNumber == 2) {
-      analogWrite(11, HIGH);
+      digitalWrite(11, HIGH);
       delay(100);
-      analogWrite(11, LOW);
+      digitalWrite(11, LOW);
       delay(100);
-      analogWrite(11, HIGH);
+      digitalWrite(11, HIGH);
       delay(100);
-      analogWrite(11, LOW);
+      digitalWrite(11, LOW);
       delay(500);
       bool hold = false;
 
@@ -149,9 +149,9 @@ void loop()
 
     }
     else if(randNumber == 3) {
-      analogWrite(11, HIGH);
+      digitalWrite(11, HIGH);
       delay(100);
-      analogWrite(11, LOW);
+      digitalWrite(11, LOW);
       delay(500);
       bool hold = false;
 
