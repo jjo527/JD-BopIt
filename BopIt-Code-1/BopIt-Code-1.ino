@@ -29,9 +29,11 @@ void loop()
     
     if (digitalRead(12) == HIGH) {
       isRunning = true;
+      Serial.print("start stop indicator turned on");
     }
     else {
       isRunning = false;
+      Serial.print("start stop indicator turned off");
     }
 
     delay(5000);
@@ -60,6 +62,7 @@ void loop()
         delay(1);
 
         if (digitalRead(6) == HIGH && hold == false) {
+          Serial.print("correct input detected");
           digitalWrite(1, HIGH);
           delay(500);
           digitalWrite(1, LOW);
@@ -116,6 +119,7 @@ void loop()
           hold = true;
         }
         else if (digitalRead(7) == HIGH && hold == false) {
+          Serial.print("correct input detected");
           digitalWrite(1, HIGH);
           delay(500);
           digitalWrite(1, LOW);
@@ -168,6 +172,7 @@ void loop()
           hold = true;
         }
         else if (digitalRead(8) == HIGH && hold == false) {
+          Serial.print("correct input detected");
           digitalWrite(1, HIGH);
           delay(500);
           digitalWrite(1, LOW);
