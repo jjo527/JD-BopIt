@@ -40,9 +40,20 @@ void loop()
   // constant while loop that gives/checks for inputs
   while (isRunning) {
     int randNumber = random(1,4);
-
+      
     if(randNumber == 1) {
       digitalWrite(11, HIGH);
+      delay(100)
+      digitalWrite(11, LOW);
+      delay(100)
+      digitalWrite(11, HIGH);
+      delay(100)
+      digitalWrite(11, LOW);
+      delay(100)
+      digitalWrite(11, HIGH);
+      delay(100)
+      digitalWrite(11, LOW);
+      delay(500)
       bool hold = false;
 
       for(int i = 0; i < 3000; i++) {
@@ -84,7 +95,14 @@ void loop()
 
     }
     else if(randNumber == 2) {
-      digitalWrite(10, HIGH);
+      digitalWrite(11, HIGH);
+      delay(100)
+      digitalWrite(11, LOW);
+      delay(100)
+      digitalWrite(11, HIGH);
+      delay(100)
+      digitalWrite(11, LOW);
+      delay(500)
       bool hold = false;
 
       for(int i = 0; i < 3000; i++) {
@@ -126,7 +144,10 @@ void loop()
 
     }
     else if(randNumber == 3) {
-      digitalWrite(9, HIGH);
+      digitalWrite(11, HIGH);
+      delay(100)
+      digitalWrite(11, LOW);
+      delay(500)
       bool hold = false;
 
       for(int i = 0; i < 3000; i++) {
