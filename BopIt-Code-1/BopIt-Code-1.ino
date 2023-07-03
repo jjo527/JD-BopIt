@@ -12,7 +12,7 @@ void setup() {
   pinMode(9, OUTPUT); // bottom light signaling input 
   pinMode(10, OUTPUT); // middle light signaling input
   pinMode(11, OUTPUT); // top light signaling input
-  TCCR2B = TCCR2B & 0b11111000 | 0x01;
+  //TCCR2B = TCCR2B & 0b11111000 | 0x01;
   pinMode(12, OUTPUT); //start/stop indicator
   bool isRunning = false;
 
@@ -45,14 +45,6 @@ void loop()
     int randNumber = random(1,4);
       
     if(randNumber == 1) {
-      digitalWrite(11, HIGH);
-      delay(100);
-      digitalWrite(11, LOW);
-      delay(100);
-      digitalWrite(11, HIGH);
-      delay(100);
-      digitalWrite(11, LOW);
-      delay(100);
       digitalWrite(11, HIGH);
       delay(100);
       digitalWrite(11, LOW);
@@ -149,6 +141,14 @@ void loop()
 
     }
     else if(randNumber == 3) {
+      digitalWrite(11, HIGH);
+      delay(100);
+      digitalWrite(11, LOW);
+      delay(100);
+      digitalWrite(11, HIGH);
+      delay(100);
+      digitalWrite(11, LOW);
+      delay(100);
       digitalWrite(11, HIGH);
       delay(100);
       digitalWrite(11, LOW);
