@@ -43,17 +43,17 @@ void loop()
       
     if(randNumber == 1) {
       digitalWrite(11, HIGH);
-      delay(100)
+      delay(100);
       digitalWrite(11, LOW);
-      delay(100)
+      delay(100);
       digitalWrite(11, HIGH);
-      delay(100)
+      delay(100);
       digitalWrite(11, LOW);
-      delay(100)
+      delay(100);
       digitalWrite(11, HIGH);
-      delay(100)
+      delay(100);
       digitalWrite(11, LOW);
-      delay(500)
+      delay(500);
       bool hold = false;
 
       for(int i = 0; i < 3000; i++) {
@@ -96,13 +96,13 @@ void loop()
     }
     else if(randNumber == 2) {
       digitalWrite(11, HIGH);
-      delay(100)
+      delay(100);
       digitalWrite(11, LOW);
-      delay(100)
+      delay(100);
       digitalWrite(11, HIGH);
-      delay(100)
+      delay(100);
       digitalWrite(11, LOW);
-      delay(500)
+      delay(500);
       bool hold = false;
 
       for(int i = 0; i < 3000; i++) {
@@ -145,9 +145,9 @@ void loop()
     }
     else if(randNumber == 3) {
       digitalWrite(11, HIGH);
-      delay(100)
+      delay(100);
       digitalWrite(11, LOW);
-      delay(500)
+      delay(500);
       bool hold = false;
 
       for(int i = 0; i < 3000; i++) {
