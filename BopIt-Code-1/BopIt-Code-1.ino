@@ -44,7 +44,7 @@ void loop()
   while (isRunning) {
     int randNumber = random(1,4); //generates random command number
 
-    int decreaseTime = 0
+    int decreaseTime = 0;
       
     if(randNumber == 1) {
       digitalWrite(11, HIGH);
@@ -207,7 +207,7 @@ void loop()
       else {
         isRunning = false;
       }
-      decreaseTime += 20
+      decreaseTime += 20;
       delay(5000);
     }  
 
