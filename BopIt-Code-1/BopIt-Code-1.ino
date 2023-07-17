@@ -43,6 +43,8 @@ void loop()
   // constant while loop that gives/checks for inputs
   while (isRunning) {
     int randNumber = random(1,4); //generates random command number
+
+    int decreaseTime = 0
       
     if(randNumber == 1) {
       digitalWrite(11, HIGH);
@@ -51,7 +53,7 @@ void loop()
       delay(500);
       bool userInput = false;
 
-      for(int i = 0; i < 3000; i++) { //loop checking for input from user
+      for(int i = 0; i < 3000-decreaseTime; i++) { //loop checking for input from user
         delay(1);
 
         if (digitalRead(6) == HIGH && userInput == false) {
@@ -101,7 +103,7 @@ void loop()
       delay(500);
       bool userInput = false;
 
-      for(int i = 0; i < 3000; i++) {
+      for(int i = 0; i < 3000-decreaseTime; i++) {
         delay(1);
 
         if (digitalRead(6) == HIGH && userInput == false) {
@@ -155,7 +157,7 @@ void loop()
       delay(500);
       bool userInput = false;
 
-      for(int i = 0; i < 3000; i++) {
+      for(int i = 0; i < 3000-decreaseTime; i++) {
         delay(1);
 
         if (digitalRead(6) == HIGH && userInput == false) {
@@ -205,7 +207,7 @@ void loop()
       else {
         isRunning = false;
       }
-
+      decreaseTime += 20
       delay(5000);
     }  
 
