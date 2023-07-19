@@ -50,10 +50,7 @@ void loop()
     if(randNumber == 1) {//first command check
 
       //give command
-      digitalWrite(11, HIGH);
-      delay(100);
-      digitalWrite(11, LOW);
-      delay(500);
+      buzz();
       bool userInput = false;
 
       //wait for user input
@@ -61,28 +58,18 @@ void loop()
         delay(1);
 
         if (digitalRead(6) == HIGH && userInput == false) {
-          Serial.print("correct input detected");
-          digitalWrite(1, HIGH);
-          delay(500);
-          digitalWrite(1, LOW);
-          delay(500);
+          good_input();
           userInput = true;
           score += 1;
           break;
         }
         else if (digitalRead(7) == HIGH && userInput == false) {
-          digitalWrite(0, HIGH);
-          delay(500);
-          digitalWrite(0, LOW);
-          delay(500);
+          bad_input();
           userInput = true;
           break;
         }
         else if (digitalRead(8) == HIGH && userInput == false) {
-          digitalWrite(0, HIGH);
-          delay(500);
-          digitalWrite(0, LOW);
-          delay(500);
+          bad_input();
           userInput = true;
           break;
         }
@@ -94,11 +81,7 @@ void loop()
       }
 
       if (userInput == false) {
-        digitalWrite(0, HIGH);
-        delay(500);
-        digitalWrite(0, LOW);
-        delay(500);
-
+        bad_input();
       }
 
       digitalWrite(11, LOW);
@@ -106,14 +89,8 @@ void loop()
 
     }
     else if(randNumber == 2) {
-      digitalWrite(11, HIGH);
-      delay(100);
-      digitalWrite(11, LOW);
-      delay(100);
-      digitalWrite(11, HIGH);
-      delay(100);
-      digitalWrite(11, LOW);
-      delay(500);
+      buzz();
+      buzz();
       bool userInput = false;
 
       for(int i = 0; i < 3000-decreaseTime; i++) {
@@ -137,15 +114,12 @@ void loop()
         }
       }
 
-      if (score >= 99){
+      if (check_winner(score)) {
         break;
       }
 
       if (userInput == false) {
-        digitalWrite(0, HIGH);
-        delay(500);
-        digitalWrite(0, LOW);
-        delay(500);
+        bad_input();
       }
 
       digitalWrite(11, LOW);
@@ -153,45 +127,27 @@ void loop()
 
     }
     else if(randNumber == 3) {
-      digitalWrite(11, HIGH);
-      delay(100);
-      digitalWrite(11, LOW);
-      delay(100);
-      digitalWrite(11, HIGH);
-      delay(100);
-      digitalWrite(11, LOW);
-      delay(100);
-      digitalWrite(11, HIGH);
-      delay(100);
-      digitalWrite(11, LOW);
-      delay(500);
+      buzz();
+      buzz();
+      buzz();
+
       bool userInput = false;
 
       for(int i = 0; i < 3000-decreaseTime; i++) {
         delay(1);
 
         if (digitalRead(6) == HIGH && userInput == false) {
-          digitalWrite(0, HIGH);
-          delay(500);
-          digitalWrite(0, LOW);
-          delay(500);
+          bad_input();
           userInput = true;
           break;
         }
         else if (digitalRead(7) == HIGH && userInput == false) {
-          digitalWrite(0, HIGH);
-          delay(500);
-          digitalWrite(0, LOW);
-          delay(500);
+          bad_input();
           userInput = true;
           break;
         }
         else if (digitalRead(8) == HIGH && userInput == false) {
-          Serial.print("correct input detected");
-          digitalWrite(1, HIGH);
-          delay(500);
-          digitalWrite(1, LOW);
-          delay(500);
+          good_input();
           userInput = true;
           score += 1;
           break;
@@ -204,10 +160,7 @@ void loop()
       }
 
       if (userInput == false) {
-        digitalWrite(0, HIGH);
-        delay(500);
-        digitalWrite(0, LOW);
-        delay(500);
+        bad_input();
       }
 
       digitalWrite(11, LOW);
@@ -254,3 +207,20 @@ void good_input() {
   delay(500);
 }
 
+void buzz() {
+  digitalWrite(11, HIGH);
+  delay(100);
+  digitalWrite(11, LOW);
+  delay(100);
+}
+
+bool check_winner(int score) {
+  if(score >= 99) {
+    for(int i = 1; i <= 10; i++) {
+      buzz();
+    }
+    return true;
+  }
+
+  return false;
+}
