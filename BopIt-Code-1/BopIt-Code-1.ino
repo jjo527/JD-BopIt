@@ -45,14 +45,19 @@ void loop()
     int randNumber = random(1,4); //generates random command number
 
     int decreaseTime = 0;
+
+    int score = 0;
       
-    if(randNumber == 1) {
+    if(randNumber == 1) {//first command check
+      
+      //give command
       digitalWrite(11, HIGH);
       delay(100);
       digitalWrite(11, LOW);
       delay(500);
       bool userInput = false;
 
+      //wait for user input
       for(int i = 0; i < 3000-decreaseTime; i++) { //loop checking for input from user
         delay(1);
 
@@ -63,6 +68,8 @@ void loop()
           digitalWrite(1, LOW);
           delay(500);
           userInput = true;
+          score += 1;
+          break;
         }
         else if (digitalRead(7) == HIGH && userInput == false) {
           digitalWrite(0, HIGH);
@@ -70,6 +77,7 @@ void loop()
           digitalWrite(0, LOW);
           delay(500);
           userInput = true;
+          break;
         }
         else if (digitalRead(8) == HIGH && userInput == false) {
           digitalWrite(0, HIGH);
@@ -77,8 +85,13 @@ void loop()
           digitalWrite(0, LOW);
           delay(500);
           userInput = true;
+          break;
         } 
+      }
 
+      //check score
+      if (score >= 99){
+        break;
       }
 
       if (userInput == false) {
@@ -86,6 +99,7 @@ void loop()
         delay(500);
         digitalWrite(0, LOW);
         delay(500);
+
       }
       
       digitalWrite(11, LOW);
@@ -112,6 +126,7 @@ void loop()
           digitalWrite(0, LOW);
           delay(500);
           userInput = true;
+          break;
         }
         else if (digitalRead(7) == HIGH && userInput == false) {
           Serial.print("correct input detected");
@@ -120,6 +135,8 @@ void loop()
           digitalWrite(1, LOW);
           delay(500);
           userInput = true;
+          score += 1;
+          break;
         }
         else if (digitalRead(8) == HIGH && userInput == false) {
           digitalWrite(0, HIGH);
@@ -127,8 +144,13 @@ void loop()
           digitalWrite(0, LOW);
           delay(500);
           userInput = true;
+          break;
         } 
 
+      }
+
+      if (score >= 99){
+        break;
       }
 
       if (userInput == false) {
@@ -166,6 +188,7 @@ void loop()
           digitalWrite(0, LOW);
           delay(500);
           userInput = true;
+          break;
         }
         else if (digitalRead(7) == HIGH && userInput == false) {
           digitalWrite(0, HIGH);
@@ -173,6 +196,7 @@ void loop()
           digitalWrite(0, LOW);
           delay(500);
           userInput = true;
+          break;
         }
         else if (digitalRead(8) == HIGH && userInput == false) {
           Serial.print("correct input detected");
@@ -181,8 +205,14 @@ void loop()
           digitalWrite(1, LOW);
           delay(500);
           userInput = true;
+          score += 1;
+          break;
         } 
 
+      }
+
+      if (score >= 99){
+        break;
       }
 
       if (userInput == false) {
@@ -198,6 +228,15 @@ void loop()
     }
 
     // still check for start button toggle
+    isRunning = check_for_start_button(isRunning);
+    decreaseTime += 20;
+
+    delay(2000);
+  }
+}
+
+bool check_for_start_button(bool isRunning)
+{
     if(digitalRead(13) == HIGH) {
       digitalWrite(12, !digitalRead(12));
       
@@ -207,10 +246,7 @@ void loop()
       else {
         isRunning = false;
       }
-      decreaseTime += 20;
-      delay(5000);
+      delay(1000);
     }  
-
-    delay(2000);
-  }
+    return isRunning;
 }
