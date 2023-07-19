@@ -22,22 +22,12 @@ void loop()
 {
   bool isRunning = false;
   digitalWrite(1, LOW);
-  delay(500);
 
-  // toggle start light and logic
+  // start button logic
   if(digitalRead(13) == HIGH) {
-    digitalWrite(12, !digitalRead(12));
-
-    if (digitalRead(12) == HIGH) {
+      digitalWrite(12, HIGH);
       isRunning = true;
-      Serial.print("start stop indicator turned on");
-    }
-    else {
-      isRunning = false;
-      Serial.print("start stop indicator turned off");
-    }
-
-    delay(5000);
+      delay(1000);
   }
 
   // constant while loop that gives/checks for inputs
@@ -66,11 +56,13 @@ void loop()
         else if (digitalRead(7) == HIGH && userInput == false) {
           bad_input();
           userInput = true;
+          isRunning = false;
           break;
         }
         else if (digitalRead(8) == HIGH && userInput == false) {
           bad_input();
           userInput = true;
+          isRunning = false;
           break;
         }
       }
@@ -82,6 +74,7 @@ void loop()
 
       if (userInput == false) {
         bad_input();
+        isRunning = false;
       }
 
       digitalWrite(11, LOW);
@@ -99,6 +92,7 @@ void loop()
         if (digitalRead(6) == HIGH && userInput == false) {
           bad_input();
           userInput = true;
+          isRunning = false;
           break;
         }
         else if (digitalRead(7) == HIGH && userInput == false) {
@@ -108,8 +102,9 @@ void loop()
           break;
         }
         else if (digitalRead(8) == HIGH && userInput == false) {
-          good_input();
+          bad_input();
           userInput = true;
+          isRunning = false;
           break;
         }
       }
@@ -120,6 +115,7 @@ void loop()
 
       if (userInput == false) {
         bad_input();
+        isRunning = false;
       }
 
       digitalWrite(11, LOW);
@@ -139,11 +135,13 @@ void loop()
         if (digitalRead(6) == HIGH && userInput == false) {
           bad_input();
           userInput = true;
+          isRunning = false;
           break;
         }
         else if (digitalRead(7) == HIGH && userInput == false) {
           bad_input();
           userInput = true;
+          isRunning = false;
           break;
         }
         else if (digitalRead(8) == HIGH && userInput == false) {
@@ -161,6 +159,7 @@ void loop()
 
       if (userInput == false) {
         bad_input();
+        isRunning = false;
       }
 
       digitalWrite(11, LOW);
@@ -168,15 +167,11 @@ void loop()
 
     }
 
-    // still check for start button toggle
-    isRunning = check_for_start_button(isRunning);
     decreaseTime += 20;
-
-    delay(2000);
   }
 }
 
-bool check_for_start_button(bool isRunning)
+bool start_game(bool isRunning)
 {
     if(digitalRead(13) == HIGH) {
       digitalWrite(12, !digitalRead(12));
